@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS WEB</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #000;
+            color: #00ff00;
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            height: 100vh; /* Full height */
+            overflow-y: scroll; /* Allow vertical scroll */
+        }
+        .profile {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 3px solid #00ff00;
+        }
+        .experience {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .bar {
+            background-color: #444;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            height: 25px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #00ff00;
+            border-radius: 5px;
+            width: 0%;
+            transition: width 2s ease;
+        }
+        .about-me {
+            display: inline-block;
+            white-space: pre-wrap;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #00ff00; /* Green */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Remove underline for links */
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #00cc00; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile">
+        <img src="https://raw.githubusercontent.com/Mehdi71x1/RS-WEB/refs/heads/main/IMG_20241102_174041_833.jpg" alt="Your Name">
+        <h1>RS WEB</h1>
+        <p class="about-me" id="aboutMe"></p>
+    </div>
+
+    <div class="experience">
+        <h2>My Skills</h2>
+        <div>HTML <span>98%</span></div>
+        <div class="bar">
+            <div class="progress" id="htmlProgress"></div>
+        </div>
+        <div>CSS <span>65%</span></div>
+        <div class="bar">
+            <div class="progress" id="cssProgress"></div>
+        </div>
+        <div>JavaScript <span>45%</span></div>
+        <div class="bar">
+            <div class="progress" id="jsProgress"></div>
+        </div>
+    </div>
+
+    <a href="https://t.me/RS_VIP_999" class="button">Contact Me</a>
+
+    <script>
+        const aboutText = "Hey there!I'm Mehdi Hasan, a skilled app and web developer, as well as a cyber security expert.Let me transform your digital vision into reality while ensuring top-notch protection for your online assets.";
+        let index = 0;
+
+        function typeWriter() {
+            if (index < aboutText.length) {
+                document.getElementById("aboutMe").innerHTML += aboutText.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        function animateProgress() {
+            document.getElementById("htmlProgress").style.width = "98%";
+            document.getElementById("cssProgress").style.width = "65%";
+            document.getElementById("jsProgress").style.width = "45%";
+        }
+
+        typeWriter();
+        window.onload = animateProgress;
+
+        // Function to scroll down
+        function scrollDown() {
+            window.scrollBy({
+                top: window.innerHeight, // Scroll down by the height of the viewport
+                behavior: 'smooth' // Smooth scroll effect
+            });
+        }
+
+        // Automatically scroll down after typing is complete
+        setTimeout(scrollDown, aboutText.length * 50);
+    </script>
+
+</body>
+</html>
